@@ -1,0 +1,142 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API Rest Clientes",
+    "description": "API para consultar y modificar datos de clientes"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/api/clientes/insertar": {
+      "post": {
+        "summary": "Insertar un cliente",
+        "description": "Insertar un nuevo cliente",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Ingresa los datos solicitados",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nombre": {
+                  "type": "string"
+                },
+                "apellidos": {
+                  "type": "string"
+                },
+                "direccion": {
+                  "type": "string"
+                },
+                "telefono": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              },
+              "example": {
+                "nombre": "Juan",
+                "apellidos": "Perez",
+                "direccion": "Calle 123",
+                "telefono": "123456789",
+                "email": "juan@example.com"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resultado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "respuesta_tipo": {
+                  "type": "string"
+                },
+                "respuesta_detalle": {
+                  "type": "string"
+                },
+                "datos": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/clientes/getAll": {
+      "post": {
+        "summary": "Lista de todos los clientes",
+        "description": "Devuelve un json con la lista de todos los clientes",
+        "responses": {
+          "200": {
+            "description": "Resultado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "respuesta_tipo": {
+                  "type": "string"
+                },
+                "respuesta_detalle": {
+                  "type": "string"
+                },
+                "datos": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/clientes/getById": {
+      "post": {
+        "summary": "Cliente por ID",
+        "description": "Filtra por medio de un ID para encontrar los datos de un cliente",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Ingresa el ID solicitado",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                }
+              },
+              "example": {
+                "id": 1
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resultado",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "respuesta_tipo": {
+                  "type": "string"
+                },
+                "respuesta_detalle": {
+                  "type": "string"
+                },
+                "datos": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
